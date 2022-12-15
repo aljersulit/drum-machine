@@ -1,0 +1,75 @@
+*, *::after, *::before {
+    box-sizing: border-box;
+    padding: 0;
+    margin: 0;
+}
+
+@mixin border-radius($radius) {
+    -webkit-border-radius: $radius;
+    -moz-border-radius: $radius;
+    -ms-border-radius: $radius;
+    border-radius: $radius;
+}
+
+html {
+    font-size: 10px;
+}
+
+body {
+    background-color: #8d8d8d;
+}
+
+div#root {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    height: 100vh;
+}
+
+div.App {
+    outline: 0.5rem solid orange;
+    background-color: #b3b3b3;
+    padding: 2rem;
+
+    div#display {
+        width: 15rem;
+        height: 4rem;
+        margin: 0 auto 3rem auto;
+        padding: 1rem;
+        background-color: grey;
+        text-align: center;
+        font-size: 2rem;
+        font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+        font-weight: 700;
+        line-height: 2rem;
+    }
+
+    div.drumpad-container {
+        width: 33.2rem;
+        height: 27.2rem;
+        display: grid;
+        grid-template-columns: 1fr 1fr 1fr;
+        gap: 1rem;
+
+        button.drum-pad {
+            background-color: grey;
+            font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+            font-weight: 700;
+            font-size: 2em;
+            cursor: pointer;
+            box-shadow: grey 2px 2px 2px;
+            @include border-radius(0.5rem);
+        }
+
+        button.drum-pad:hover {
+            opacity: 0.85;
+        }
+    }
+    
+}
+
+@media only screen and (max-width: 480px) {
+    html {
+        font-size: 2.1vw;
+    }
+}
